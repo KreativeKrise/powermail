@@ -66,7 +66,7 @@ class SendSenderMailPreflight
      */
     public function sendSenderMail(Mail $mail, $ttContentData): void
     {
-        $senderService = ObjectUtility::getObjectManager()->get(SenderMailPropertiesService::class, $this->settings);
+        $senderService = ObjectUtility::getObjectManager()->get(SenderMailPropertiesService::class, $this->settings, $this->conf);
         $email = [
             'template' => 'Mail/SenderMail',
             'receiverEmail' => $this->mailRepository->getSenderMailFromArguments($mail),
